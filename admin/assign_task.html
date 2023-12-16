@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Task</title>
+</head>
+<body>
+     <h2>Assign Task</h2>
+     <form id="assign_form">
+        <label for="intern">Intern: </label>
+        <select id="intern_opt">
+            <option value="">** Select Intern **</option>
+        </select>
+        <br>
+
+        <label for="deadline">Deadline: </label>
+        <input type="date" name="deadline" id="deadline">
+        <br>
+        <label for="task">Task: </label>
+        <input type="text" name="task_d" id="task_d">
+        <br>
+        <label for="task_des">Task Description: </label>
+        <br>
+        <textarea name="" id="task_des" cols="30" rows="5" style="resize: none;"></textarea>
+        <br>
+        <label>Refrences: </label>
+        <br>
+        <label for="link">Link: </label>
+        <input type="url" name="link" id="link" placeholder="Paste Link Here">
+        <br>
+        <label for="doc">Document: </label>
+        <input type="file" name="doc" id="doc">
+        <br>
+        <input type="submit" value="Assign Task">
+     </form>
+
+     <script src="script/assign_task.js"></script>
+</body>
+</html>
