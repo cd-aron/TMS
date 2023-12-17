@@ -200,6 +200,7 @@ add_sup.addEventListener("click" ,(e) =>{
 
       let email = document.querySelector('#email');
       let phone_number = document.querySelector('#phone_number');
+      let role = document.querySelector('#role');
       let uname = document.querySelector('#uname');
       
       let pass = document.querySelector('#pass');
@@ -235,6 +236,7 @@ add_sup.addEventListener("click" ,(e) =>{
             if (
               check(email) &&
               check(phone_number) &&
+              check(role) &&
               check(uname) &&
               check(pass) &&
               check(cpass)
@@ -243,6 +245,7 @@ add_sup.addEventListener("click" ,(e) =>{
               const data = {
                   "email": email.value,
                   "phone_number": phone_number.value,
+                  "role": role.value,
                   "uname": uname.value,
                   "pass": pass.value 
               }
@@ -297,10 +300,31 @@ let profile = document.querySelector("#profile")
 profile.addEventListener("click" ,(e) =>{
      e.preventDefault();
 
-    fetch("http://localhost/tms/admin/profile.html")
+    fetch("http://localhost/tms/admin/admin_profile.html")
     .then(response => response.text())
     .then(htmlContent => {
       body.innerHTML = htmlContent;
+         
+        let user_name = document.querySelector('#user_name')
+        let email = document.querySelector('#email');
+        let phone_number = document.querySelector('#phone_number');
+        let role = document.querySelector('#role');
+        let uname2 = document.querySelector('#uname2');
+
+        fetch("http://localhost/tms/server/admin_profile.php")
+        .then(response => response.json())
+        .then(data =>{
+            console.log(data)
+            user_name.textContent = data.uname
+            email.value = data.email
+            phone_number.value = data.phone_number
+            role.value = data.role
+            uname2.value = data.uname
+        })
+        .catch(error =>{
+
+        })
+
     })
     .catch((error) => console.error("Error fetching profile.html:", error));
 });

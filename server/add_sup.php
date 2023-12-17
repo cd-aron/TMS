@@ -14,6 +14,7 @@
  
    $email = $data->email;
    $phone_number = $data->phone_number;
+   $role = $data->role;
    $uname = $data->uname;
    $pass = $data->pass;
    
@@ -31,7 +32,7 @@
         }
     }
 
-   $sql = "INSERT INTO admin(email, phone_number, uname, pass) VALUES('$email', '$phone_number','$uname', '$hash')";
+   $sql = "INSERT INTO admin(email, phone_number, uname, pass,role) VALUES('$email', '$phone_number','$uname', '$hash', '$role')";
      
    if($conn->query($sql)){
       http_response_code(200);
