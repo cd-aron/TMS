@@ -80,7 +80,7 @@ reg_form.addEventListener("submit", (e) =>{
         })
         .then(data =>{
            alert(data.message)
-           window.location.href = "http://localhost/tms/client/log.html"
+           window.location.href = "http://localhost/tms/client/index.html"
         })
         .catch(error =>{
           if (error.message === "Bad Request") {
