@@ -194,6 +194,100 @@ add_sup.addEventListener("click" ,(e) =>{
     .then(response => response.text())
     .then(htmlContent => {
       body.innerHTML = htmlContent;
+
+      let add_form = document.querySelector('#add_form');
+
+
+      let email = document.querySelector('#email');
+      let phone_number = document.querySelector('#phone_number');
+      let uname = document.querySelector('#uname');
+      
+      let pass = document.querySelector('#pass');
+      let cpass = document.querySelector('#cpass');
+      
+      function check(field) {
+         if (field.value === "") {
+            field.style.borderColor = "red";
+            const para = document.createElement("p");
+            para.innerText = "Please Fill " + field.name;
+            document.body.appendChild(para);
+            setTimeout(function() {
+              document.body.removeChild(para);
+            }, 2000);
+            
+            return false; // Return false to indicate that the field is empty
+         } else {
+            field.style.borderColor = "";
+      
+            if (pass.value !== cpass.value) {
+              const cp_message = document.getElementById('cp_message');
+              cp_message.innerText = "Password doesn't match";
+              cp_message.style.color = "red";
+              return false; // Return false to indicate that passwords don't match
+           }
+           return true; // Return true when the field is filled and passwords match
+         }
+      }
+      
+      add_form.addEventListener("submit", (e) =>{
+            e.preventDefault();
+            
+            if (
+              check(email) &&
+              check(phone_number) &&
+              check(uname) &&
+              check(pass) &&
+              check(cpass)
+            ) {   
+              
+              const data = {
+                  "email": email.value,
+                  "phone_number": phone_number.value,
+                  "uname": uname.value,
+                  "pass": pass.value 
+              }
+      
+              const init = {
+                  method: "POST",
+                  headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+              }
+      
+              fetch("http://localhost/tms/server/add_sup.php", init)
+              .then(response => {
+                if (response.status === 200) {
+                  return response.json()
+              } else if (response.status === 405) {
+                  throw new Error("Bad Request")
+              } else if (response.status === 409) {
+                  throw new Error("Data already exists")
+              } else {
+                  return response.json().then(errorData => {
+                      throw new Error("Internal Server Error")
+                  });
+              }
+              })
+              .then(data =>{
+                 alert(data.message)
+                 window.location.href = "http://localhost/tms/admin/dashboard.html"
+              })
+              .catch(error =>{
+                if (error.message === "Bad Request") {
+                  alert(error.message)
+              } else if (error.message === "Admin already exists") {
+                  alert(error.message)
+              } else {
+                  alert("Internal Server Error")
+              }
+              })
+            }
+      })
+      
+         
+
     })
     .catch((error) => console.error("Error fetching add_sup.html:", error));
 });

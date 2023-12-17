@@ -5,29 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style/user_dash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
     <div class="container">
-        <div class="menu">
-            <img src="assets/img/user.png" alt="logo" id="user_img">
-            <h2 id="uname"></h2>
+        <nav>
+           <ul class="nav-item"> 
+            <li>
+                <a href="#" class="logo">
+                   <img src="assets/img/user.png" alt="logo" id="user_img">
+                </a>  
+                <h2 id="uname"></h2>
+            </li>
 
-            <nav>
-                <li><a href="" id = "dashboard">Dashboard</a></li>
-                <li><a href="" id="task">Tasks</a></li>
-                <li><a href="" id="contact">Contact</a></li>
-                <li><a href="" id="profile">Profile</a></li>
-                <li><a href="" id="notification">Notification</a></li>
+            <li>
+               <i class="fas fa-home"></i>
+               <a href=" " id="dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <i class="fas fa-tasks"></i>
+                <a href=" " id="task">Tasks</a>
+             </li>
+    
+              
+             <li>
+                <i class="fas fa-phone"></i>
+                <a href=" " id="contact">Contact</a>
+             </li>
+
+             <li>
+                <i class="fas fa-user"></i>
+                <a href=" " id="profile">Profile</a>
+             </li>
+
+              <li>
+                <i class="fas fa-bell"></i>
+                <a href=" " id="notification">Notification</a>
+             </li>
+             <button id="logout"><i class="fas fa-sign-out-alt"></i>LogOut</button>
+             
+            </ul>    
             </nav>
-
-            <button id="logout">LogOut</button>
-        </div>
-
-        <div class="sub_container">
-            <div class="panel"></div>
-            <div class="body"></div>
-        </div>
-    </div>
     <script src="script/user_dash.js"></script>
     <script src="script/user_logout.js"></script>
 </body>

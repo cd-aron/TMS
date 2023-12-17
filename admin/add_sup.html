@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Supervisor</title>
+    <link rel="stylesheet" href="style/add_sup.css">
 </head>
 <body>
-    <h2>This is add supper page</h2>
+     <h2>Add Supervisor</h2>
+  <form id="add_form">
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email" >
+      <br>
+      <label for="phone_number">Phone number: </label>
+      <input type="number" name="phone_number" id="phone_number">
+      <br>
+      <label for="uname">Username: </label>
+      <input type="text" name="uname" id="uname"  min="8" max="20">
+      <br>
+      <label for="pass">Password: </label>
+      <input type="password" name="pass" id="pass" >
+      <br>
+      <p id="cp_message"></p>
+      <label for="cpass">Confirm password: </label>
+      <input type="password" name="cpass" id="cpass" >
+      <br>
+      <input type="submit" value="Add User">
+  </form> 
+  
+  <script src="script/add_sup.js"></script>
 </body>
 </html>

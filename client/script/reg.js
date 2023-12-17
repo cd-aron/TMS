@@ -85,7 +85,7 @@ reg_form.addEventListener("submit", (e) =>{
         .catch(error =>{
           if (error.message === "Bad Request") {
             alert(error.message)
-        } else if (error.message === "Data already exists") {
+        } else if (error.message === "User already exists") {
             alert(error.message)
         } else {
             alert("Internal Server Error")
