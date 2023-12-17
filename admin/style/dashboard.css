@@ -1,69 +1,94 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
-    overflow: hidden;
-}
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
 
-.container{
+  body{
+    background: #dfe9f5;
+  }
 
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-}
-
-.menu{
-    height: 100vh;
-    width: 15%;
-    border: red;
-}
-
-/* menu Elements */
-#user_img{
-    height: 80px;
-    width: 80px;
-    margin-top: 10px;
-}
-#user_name{
-    position: absolute;
-    top: 30px;
-    left: 88px;
-}
-nav{
-    margin-top: 50px;
-}
-li{
-    list-style: none;
-    padding: 15px;
-    font-size: 18px;
-}
-li a{
-    color: black;
-    text-decoration:none;
-}
-#logout{
-    margin-top:20px;
-    margin-left: 20px;
-    height: 30px;
-    width: 90px;
-    cursor: pointer;
-}
-
-.sub_container{
-    width: 100vw;
-    height: 100vh;
+  .container{
     display: flex;
-    flex-direction: column;
-   
-}
- 
-.panel{
-    height: 10%;
-    background-color: green;
-}
+  }
 
-.body{
+  nav{
+    position: relative;
+    top: 0;
+    bottom: 0;
     height: 100vh;
-    background-color: violet;
-}
+    left: 0;
+    background: #fff;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
 
+  .logo{
+    text-align: center;
+    display: flex;
+    margin: 7px 0 0 1px;
+  }
+  .logo img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+   
+  #uname{ 
+    margin: 31px 89px 0px 0px;
+   }
+
+  a{
+    position: relative;
+    color: rgb(85, 83, 83);
+    font-size: 20px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+
+    transition: 0.3s ease-in-out;
+  }
+
+  a:hover{
+    color: rgb(21, 189, 21);
+  }
+
+  li{
+    list-style: none;
+    display: flex;
+    margin-top: 12px;
+    
+  }
+
+
+
+
+  li i{
+    margin-top: 10px;
+  }
+
+  .nav-item{
+    position: relative;
+    top: 12px;
+    margin-left: 20px;
+  }
+
+ #logout{
+    border: .5px black;
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    margin-top:20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+ }
+
+ #logout:hover{
+    background-color: blue;
+    color: white;
+ }
