@@ -10,15 +10,15 @@
        $task_des = $data->task_des;
        $link = $data->link;
        $doc = $data->doc;
-
+       $status = 0;
 
        $conn = new mysqli("localhost", "root", "", "tms");
        if($conn->connect_error){
          echo json_encode(["message" => "Connection Error !", "status" => "500"]);
        }
        
-       $sql = "INSERT INTO task(u_id,uname, deadline, task, task_description, link, doc) 
-          VALUES('$u_id','$uname','$deadline','$task','$task_des','$link','$doc')";
+       $sql = "INSERT INTO task(u_id,uname, deadline, task, task_description, link, doc, status) 
+          VALUES('$u_id','$uname','$deadline','$task','$task_des','$link','$doc', '$status')";
        if(mysqli_query($conn, $sql)){
          echo json_encode(["message" => "Task added", "status" => "200"]);
        }

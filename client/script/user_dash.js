@@ -63,8 +63,8 @@ let task = document.querySelector("#task")
                   sl++;          
              }
             })
-           document.getElementById('taskTable').innerHTML = temp;
-
+            
+            document.getElementById('taskTable').innerHTML = temp;
          
          })
          .catch(error => {
